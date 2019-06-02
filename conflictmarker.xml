@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language name="Conflict Marker" version="1" kateversion="5.0" section="Markup" author="Roland Hieber" license="BSD">
+<highlighting>
+	<contexts>
+		<context name="Normal" attribute="Normal" lineEndContext="#stay">
+			<RegExpr attribute="OurMarker" context="OurMarker" String="^&lt;&lt;&lt;&lt;&lt;&lt;&lt;.*$" />
+		</context>
+		<context name="OurMarker" attribute="OurMarker" lineEndContext="OurText" />
+		<context name="OurText" attribute="OurText" lineEndContext="#stay">
+			<StringDetect attribute="Separator" context="Separator" column="0" String="=======" />
+		</context>
+		<context name="Separator" attribute="Separator" lineEndContext="TheirText" />
+		<context name="TheirText" attribute="TheirText" lineEndContext="#stay">
+			<RegExpr attribute="TheirMarker" context="Normal" String="^&gt;&gt;&gt;&gt;&gt;&gt;&gt;.*$" />
+		</context>
+	</contexts>
+	<itemDatas>
+		<itemData name="OurMarker" defStyleNum="dsPreprocessor" bold="true"/>
+		<itemData name="OurText" defStyleNum="dsPreprocessor" />
+		<itemData name="Separator" defStyleNum="sNormal" bold="true"/>
+		<itemData name="TheirText" defStyleNum="dsVariable" />
+		<itemData name="TheirMarker" defStyleNum="dsVariable" bold="true" />
+	</itemDatas>
+</highlighting>
+</language>
